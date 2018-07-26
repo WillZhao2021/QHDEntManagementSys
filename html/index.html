@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业发展情况及评价系统</title>
+</head>
+<body style="margin: 0;padding: 0;height: 100%;overflow: hidden">
+<iframe src="enterprise/app/app.html" onload="getIframeHeight()" marginheight="0" marginwidth="0" scrolling="auto" id="frame" name="myframe" frameborder="0" width="100%"></iframe>
+</body>
+<script>
+    function getIframeHeight(){
+        var iframe = document.getElementById('frame');
+        var subPage = document.frames ? document.frames['frame'].document : iframe.contentDocument;
+        if (iframe != null && subPage != null){
+            var height = null;
+            if (window.innerHeight){
+                height = window.innerHeight;
+            }else if((document.body) && (document.body.clientHeight)){
+                height = document.body.clientHeight;
+            }
+            iframe.height = height;
+        }
+    }
+window.onresize = function(){
+    getIframeHeight();
+}
+</script>
+</html>
